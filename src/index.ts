@@ -183,7 +183,8 @@ export default new Elysia({
       set.status = 500;
       return { error: (e as Error).message };
     }
-  });
+  })
+  .compile();
 
 async function getMegaDownloadInfo(megaUrl: string): Promise<MegaStreamData> {
   const decodedUrl = decodeURIComponent(atob(megaUrl));
