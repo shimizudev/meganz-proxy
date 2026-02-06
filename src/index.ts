@@ -10,7 +10,7 @@ interface MegaStreamData {
   fileSize: number;
 }
 
-const app = new Elysia({
+export default new Elysia({
   adapter: CloudflareAdapter,
 })
   .use(cors())
@@ -67,7 +67,7 @@ const app = new Elysia({
     const encryptedResponse = await fetch(info.encryptedUrl, { headers });
 
     // Setup decryption
-    const crypto = await import("crypto");
+    const crypto = await import("node:crypto");
     const blockOffset = Math.floor(startByte / 16);
     const intraBlockOffset = startByte % 16;
 
@@ -184,7 +184,7 @@ async function decryptAttributes(
   encryptedAttrs: string,
   key: Buffer,
 ): Promise<string> {
-  const crypto = await import("crypto");
+  const crypto = await import("node:crypto");
   const ciphertext = base64UrlDecode(encryptedAttrs);
   const iv = Buffer.alloc(16, 0);
 
