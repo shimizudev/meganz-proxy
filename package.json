@@ -1,0 +1,15 @@
+{
+  "name": "meganz-proxy",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.1",
+    "elysia": "^1.4.22"
+  }
+}
