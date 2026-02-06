@@ -2,6 +2,5 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "meganz-proxy",
   "main": "src/index.ts",
-  "compatibility_flags": ["nodejs_compat"],
   "compatibility_date": "2026-02-06",
 }
