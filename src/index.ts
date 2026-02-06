@@ -130,7 +130,8 @@ export default new Elysia({
   .compile();
 
 async function getMegaDownloadInfo(megaUrl: string): Promise<MegaStreamData> {
-  const match = megaUrl.match(/mega\.nz\/(?:file\/|#!)([^#!]+)[#!](.+)/);
+  const decodedUrl = decodeURIComponent(atob(megaUrl));
+  const match = decodedUrl.match(/mega\.nz\/(?:file\/|#!)([^#!]+)[#!](.+)/);
   if (!match) throw new Error("Invalid Mega URL");
 
   const [, handle, key] = match as [unknown, string, string];
