@@ -173,7 +173,7 @@ function unpackNodeKey(nodeKey: Buffer) {
   for (let i = 0; i < 4; i++) {
     const offset = i * 4;
     aesKey.writeUInt32BE(
-      nodeKey.readUInt32BE(offset) ^ nodeKey.readUInt32BE(offset + 16),
+      (nodeKey.readUInt32BE(offset) ^ nodeKey.readUInt32BE(offset + 16)) >>> 0,
       offset,
     );
   }
